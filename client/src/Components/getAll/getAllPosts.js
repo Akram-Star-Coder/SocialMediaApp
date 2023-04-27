@@ -42,7 +42,7 @@ const GetAllPosts = () => {
     <>
     {
     (!posts)? 
-    <div className='containerofLoading'>
+    <div className='containerofLoading'> 
       <LoadingIcon className="cqsjnx"/>
     </div>
     :

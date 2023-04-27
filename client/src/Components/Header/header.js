@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {Link, Navigate, useNavigate} from 'react-router-dom';
 import './header.css';
 import vercel from "./vercel.png"
 import { useState } from 'react';
@@ -38,6 +38,7 @@ const Header = () => {
             setCret(true)
         }
     }
+
     
     
 
@@ -110,7 +111,7 @@ const Header = () => {
                 
                 <div  className= "imagePlusName">
                     <div className="concon">
-                        <Link to={`/profile/${user._id}`} className="image">
+                        <Link   to={`/profile/${user._id}`} className="image">
                         
                         {
                             user.picture ? (<img src={user.picture} alt="" />                    
@@ -123,7 +124,7 @@ const Header = () => {
                             
                         </Link>
                     </div>
-                    <Link   to={`/profile/${user._id}`} className={path === 'profile'? "firstNameModified" : "firstName" }>
+                    <Link to={`/profile/${user._id}`} className={path === 'profile'? "firstNameModified" : "firstName" }>
                         <span>{user.firstName}</span>
                     </Link>
                 </div>

@@ -231,11 +231,14 @@
     align-items: center;
 }
 .postuniquecreatedAt em{
-    font-size: 13px;
+    font-size: 12px;
     color: rgb(100, 100, 100);
 }
 .postuniquecreatedAt{
-    margin-left: 2rem;
+    margin-left: 1rem;
+    position: absolute;
+    top: 55%;
+    left: 6.7%;
 }
 .imagePUnsui{
     height: 350px;
@@ -318,8 +321,8 @@
 .btnOptionsDelete{
     display: flex;
     position: absolute;
-    right: 1rem;
-    top: 5.5rem;
+    right: 0.3rem;
+    top: 2.1rem;
 }
 .btnOptionsDelete button{
     margin-left: 1rem ;
@@ -452,3 +455,21 @@
     align-items: center;
     justify-content: center;
 }
+
+.loadLoadingIcc{
+    height: calc(100vh - 56px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex : 6.2;
+}
+.evfnsidjqc{
+    position: absolute;
+    top: -17%;
+    right: 37%;
+    height: 200px;
+    width: 200px;
+}
+
+

@@ -11,7 +11,7 @@ import Post from './Post';
 const Profile = () => {
 
   const [userProfile, setUser]  =useState();
-  const [userPosts, setUserPosts] = useState([{}]);
+  const [userPosts, setUserPosts] = useState([]);
   const [current, setCurrent] = useState(false);
 
   const currentUser = JSON.parse(Cookies.get('user'));
@@ -113,10 +113,10 @@ const Profile = () => {
         <> 
         
         <LeftSideBar/>
-        {userProfile ? 
+        {userProfile &&
         <div className="profileInfos">
             <div className="coverP">
-              <img className="imageCOCO" src={userProfile.cover? userProfile.cover  :  "https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg"} alt="" />
+              <img className="imageCOCO" src={userProfile.cover? userProfile.cover  :  "https://rare.us/wp-content/uploads/2023/01/RARE-25-2.jpg"} alt="" />
               <div className="pictureUser">
                 <img src={userProfile.picture ? userProfile.picture : "https://cdn-icons-png.flaticon.com/512/149/149071.png"} alt="" />
               </div>
@@ -194,7 +194,7 @@ const Profile = () => {
 
                       <div className="emailp">
                         <div className="optionp following2">Created</div>
-                        <div className="optionpvalue">{userPosts.length >1 && userPosts.length} { (userPosts.length > 1 )? "posts" : (userPosts.length === 0)? "No post" : "post"  }</div>
+                        <div className="optionpvalue">{userPosts.length >1 && userPosts.length} { (userPosts.length > 1 )? "posts" : (userPosts.length === 0)? "No post" : " 1 post"  }</div>
                       </div>
 
                       <div className="emailp">
@@ -208,11 +208,6 @@ const Profile = () => {
               
 
         </div>
-        :
-        <div className="loading">
-          <LoadingIcon className='loadingIconProfile' />
-        </div>
-        
         }
       </>
       

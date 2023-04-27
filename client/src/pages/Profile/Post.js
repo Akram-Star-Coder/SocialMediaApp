@@ -4,17 +4,16 @@ import { ReactComponent as LoadingIcon } from './Dual Ring-0.8s-389px.svg';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
-import useClickOutsideToHideElement from '../../helpers/clickOutsideToHide';
-import { useRef } from 'react';
+import { Link,  useNavigate } from 'react-router-dom';
+import TimeAgo from './timeAgo';
+
+
+
+
 
 
 
 const Post = (postX) => {
-
-    
-    
-    
 
     const [postUnique, setPostunique] = useState(postX.post)
     const [user, setuser] = useState({})
@@ -36,7 +35,7 @@ const Post = (postX) => {
             });
             if(resp){
               setuser(resp.data);
-              console.log(resp.data);
+             
               
             }
           }
@@ -50,25 +49,6 @@ const Post = (postX) => {
       }, [currentUser.token, idUser]);
     
 
-      const getPostTimeAgo = (createdAt) => {
-        const currentDate = moment();
-        const postDate = moment(createdAt);
-        const diffSeconds = currentDate.diff(postDate, "seconds");
-        const diffMinutes = currentDate.diff(postDate, "minutes");
-        const diffHours = currentDate.diff(postDate, "hours");
-        const diffDays = currentDate.diff(postDate, "days");
-        if (diffSeconds < 60) {
-          return `${diffSeconds} sec ago`;
-        } else if (diffMinutes < 60) {
-          return `${diffMinutes} min ago`;
-        } else if (diffHours < 24) {
-          return `${diffHours} hours ago`;
-        } else if (diffDays < 7) {
-          return `${diffDays} days ago`;
-        } else {
-          return postDate.format("MMM DD, YYYY");
-        }
-      };
       
 
     const [isLiked, setIsLiked] = useState(false);
@@ -119,10 +99,23 @@ const Post = (postX) => {
     }
 
 
-
-
-
-    
+    //delete post function 
+    const navigate = useNavigate();
+    const handleDleetDefintlyK = async ()=>{
+      try{
+        const resp = await axios.delete(`http://localhost:3001/post/delete/${postUnique._id}`, {
+          headers : {
+            Authorization : `Bearer ${currentUser.token}`
+          }
+        });
+        if(resp){
+          navigate(0);
+        }
+      }
+      catch(e){
+        console.log(e.message)
+      }
+    }
 
 
 
@@ -132,27 +125,19 @@ const Post = (postX) => {
   return (
     <>
     {
-        (!postUnique) ? 
-        (<div className="Loadinin">
-            <LoadingIcon className="lodinin"/>
-        </div>)
-        :
-        
-        <>
-        
-        <div className={postUnique.image? "poststst" : "postststXXX"}>
-            
-            
-            
-            
+      (user.lastName && postUnique) ? (
+        <div className={postUnique.image? "poststst" : "postststXXX"}> 
             <div className="imageProfileUserx">
+                <Link  to={`/profile/${postUnique.user}`}>
                 <img src={user.picture ? user.picture : 'https://cdn-icons-png.flaticon.com/512/149/149071.png'} alt="" />
+                </Link>
                 <div className="fullnamepos">
                     <span className="jijiSpanos">
                     { user.firstName+' '+user.lastName }
                     </span>
                     <div className='postuniquecreatedAt'>
-                        <em> {getPostTimeAgo(postUnique.createdAt)}
+                        <em> 
+                          <TimeAgo createdAt={postUnique.createdAt} />
                         </em>
                     </div>
                     {
@@ -201,7 +186,7 @@ const Post = (postX) => {
                                 <span>Are you sure ?</span>
                             </div> 
                             <div className="deletedefinitely">
-                                <button>Delete definitely</button>
+                                <button onClick={handleDleetDefintlyK}>Delete definitely</button>
                             </div>
                         </div> )
                     }
@@ -266,10 +251,22 @@ const Post = (postX) => {
               
             </div>
           </div>
-        
-        </div>
-        </>
+          
+        </div>      
+      ) : 
+      <div className="loadLoadingIcc">
+        <LoadingIcon className='evfnsidjqc'/>
+      </div>
     }
+        
+       
+       
+        
+        
+      
+      
+      
+    
     </>
   )
 }

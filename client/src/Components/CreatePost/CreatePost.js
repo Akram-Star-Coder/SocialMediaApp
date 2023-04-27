@@ -7,6 +7,7 @@ import {useRef, useState} from "react";
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import useClickOutsideToHideElement from '../../helpers/clickOutsideToHide';
+import { Navigate, useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
  
@@ -70,6 +71,7 @@ const CreatePost = () => {
     const user = JSON.parse(Cookies.get('user'));
     //console.log(user);
 
+    const navigate = useNavigate();
     //function handleCreateSbmit
     const handleCreateSbmit =async (e)=>{
         e.preventDefault();
@@ -91,6 +93,7 @@ const CreatePost = () => {
             if(resp){
                 setisLoading(false);
                 setPopUp(false);
+                navigate(0);
             }
         }
         catch(e){
