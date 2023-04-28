@@ -6,18 +6,48 @@ import saved from './saved.png'
 import pages from './pages.png'
 import event from './event.png'
 import memory from './memory.png'
+import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
+import Friend from './friends';
+import axios from 'axios';
 
-import friend1 from './christophe.webp';
-import friend2 from "./jackelin.jpg";
-import friend3 from './mark.avif';
-import friend4 from './sulivian.avif';
-import friend5 from './aymane.webp';
+
 
 const Leftbar = () => {
+
+  const u = JSON.parse(Cookies.get('user'));
+  const id = u._id;
+  const token = u.token;
+
+  //rechercher le user 
+  const [user, setUser] = useState();
+
+  //axios request 
+  useEffect(()=>{
+    const fecthUser = async()=>{
+      try {
+        const resp = await axios.get(`http://localhost:3001/user/getU/${id}`, {
+          headers : {
+            Authorization : `Bearer ${token}`
+          }
+        })
+        if(resp){
+          setUser(resp.data);
+        }
+      }
+      catch(e){
+        console.log(e.message)
+      }
+    } 
+    fecthUser();
+  }, [token, id])
+
+  
+
   return (
     <div className='Leftbar'>
         
-        
+         
       
       <div className="slice1">
       <div className="titleK">
@@ -79,58 +109,30 @@ const Leftbar = () => {
 
       </div>
 
+
       <hr className="hrhrhr" />
+
+
 
       <div className="slice2">
         <div className="titleK">
           <span>Friends List</span>
         </div>
         <div className="friendsContainer">
-          <Link to='/' className='friend'>
-            <div className='imgaeFriends'>
-              <img src={friend1} alt="" />
-            </div>
-            <div className="FULLNAME">
-              Christopher Julian
-            </div>
-          </Link>
 
-          <Link to='/' className='friend'>
-            <div className='imgaeFriends'>
-              <img src={friend2} alt="" />
-            </div>
-            <div className="FULLNAME">
-              Jackelin Moro
-            </div>
-          </Link>
-
-          <Link to='/' className='friend'>
-            <div className='imgaeFriends'>
-              <img src={friend3} alt="" />
-            </div>
-            <div className="FULLNAME">
-              Mark Son
-            </div>
-          </Link>
-
-          <Link to='/' className='friend'>
-            <div className='imgaeFriends'>
-              <img src={friend4} alt="" />
-            </div>
-            <div className="FULLNAME">
-              Jon Jones
-            </div>
-          </Link>
-
-          <Link to='/' className='friend'>
-            <div className='imgaeFriends'>
-              <img src={friend5} alt="" />
-            </div>
-            <div className="FULLNAME">
-              Aymane Elbasri
-            </div>
-          </Link>
-
+          {
+            user && (
+            user.friends ?
+            user.friends.map((f,index)=>{
+              return(
+                <Friend friends={f} key={index}/>
+              )
+            })
+            :
+            <div>"No Friends"</div>
+            )
+          }
+          
 
         </div>
       </div>

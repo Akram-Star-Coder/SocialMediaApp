@@ -182,6 +182,7 @@ const Profile = () => {
                         <div className="optionpvalue ">{userProfile.birthdayDay+'/'+userProfile.birthdayMonth+'/'+userProfile.birthdayYear}</div>
                       </div>
 
+                      <noscript>
                       <div className="emailp">
                         <div className="optionp following">Followers</div>
                         <div className="optionpvalue">{userProfile.followers.length}</div>
@@ -190,6 +191,11 @@ const Profile = () => {
                       <div className="emailp">
                         <div className="optionp following">Following</div>
                         <div className="optionpvalue">{userProfile.following.length}</div>
+                      </div>
+                      </noscript>
+                      <div className="emailp">
+                        <div className="optionp following">Friends</div>
+                        <div className="optionpvalue">{userProfile.friends.length}</div>
                       </div>
 
                       <div className="emailp">

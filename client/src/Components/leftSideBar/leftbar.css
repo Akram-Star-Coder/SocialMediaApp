@@ -3,7 +3,7 @@
     overflow: hidden;
     overflow-y: scroll;
     height: calc(100vh - 56px);
-    position: sticky;
+    position: sticky; 
     top: 56px;
     bottom: 0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
