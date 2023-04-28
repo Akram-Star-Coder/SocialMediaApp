@@ -35,7 +35,7 @@ useClickOutsideToHideElement(element3, ()=>{
       const asyncF = async()=>{
         try{
           
-          const resp = await axios.post(`http://localhost:3001/user/contagtMe`, message, {
+          const resp = await axios.post(`http://localhost:3001/user/contactMe`, message, {
             headers : {
               Authorization : `Bearer ${user.token}`
             }
