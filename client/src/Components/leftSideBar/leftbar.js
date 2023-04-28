@@ -49,11 +49,11 @@ const Leftbar = () => {
         
          
       
-      <div className="slice1">
+      <div className="slice1"> 
       <div className="titleK">
           <span>Discover</span>
         </div>
-        <Link to='/' className="slice">
+        <Link  className="slice">
           <div className="im">
             <img src={friend} alt="" />
           </div>
@@ -62,7 +62,7 @@ const Leftbar = () => {
           </div>
         </Link>
 
-        <Link to='/' className="slice">
+        <Link  className="slice">
           <div className="im">
             <img src={groups} alt="" />
           </div>
@@ -71,7 +71,7 @@ const Leftbar = () => {
           </div>
         </Link>
 
-        <Link to='/' className="slice">
+        <Link  className="slice">
           <div className="im">
             <img src={pages} alt="" />
           </div>
@@ -80,7 +80,7 @@ const Leftbar = () => {
           </div>
         </Link>
 
-        <Link to='/' className="slice">
+        <Link  className="slice">
           <div className="im">
             <img src={saved} alt="" />
           </div>
@@ -89,7 +89,7 @@ const Leftbar = () => {
           </div>
         </Link>
 
-        <Link to='/' className="slice">
+        <Link  className="slice">
           <div className="im">
             <img src={event} alt="" />
           </div>
@@ -98,7 +98,7 @@ const Leftbar = () => {
           </div>
         </Link>
 
-        <Link to='/' className="slice">
+        <Link className="slice">
           <div className="im">
             <img src={memory} alt="" />
           </div>

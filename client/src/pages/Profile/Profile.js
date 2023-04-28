@@ -3,7 +3,7 @@ import Header from '../../Components/Header/header';
 import LeftSideBar from '../../Components/leftSideBar/leftbar';
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 import { ReactComponent as LoadingIcon } from './Dual Ring-0.8s-389px.svg';
 import Post from './Post';
@@ -101,6 +101,33 @@ const Profile = () => {
     }
   } 
   
+  
+
+  const navigate = useNavigate();
+
+  const handlingRequest = async () => {
+    try {
+      const resp = await axios.get(
+        `http://localhost:3001/user/HandlingFriendlyrequests/${idUrl}`,
+        
+        {
+          headers: {
+            Authorization: `Bearer ${currentUser.token}`,
+          },
+        }
+      );
+      if (resp) {
+        navigate(0)
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+  
+
+  const handleFriendRequest = ()=>{
+    handlingRequest();
+  }
 
   
   return (
@@ -140,12 +167,25 @@ const Profile = () => {
                   </>
                   )
                 }
+                {!current && (
+                <>
+                {userProfile.friends.includes(currentUser._id) ? (
+                  <button className="addtofriends remove" onClick={handleFriendRequest}>
+                    <i className="fa-solid fa-user-minus"></i>&nbsp; &nbsp;Remove from Friends
+                  </button>
+                ) : (
+                  <button className="addtofriends" onClick={handleFriendRequest}>
+                    <i className="fa-solid fa-user-plus"></i>&nbsp; &nbsp;Add to Friends
+                  </button>
+                )}
+                </>
+                )
+                }
+
             </div>
             <div className="userInfos">
-                
 
-
-                
+   
                 <div className="ui1">
                 {
                   (userPosts.length === 0)? <em className="ememe"><i className="fa-solid fa-ghost"></i> {  (currentUser._id===userProfile._id ) ? "You haven't created any posts yet" : userProfile.firstName  +"     haven't created any post yet"}</em> : 
@@ -158,7 +198,6 @@ const Profile = () => {
                   
                 }
                 </div>
-
 
 
 

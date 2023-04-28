@@ -94,6 +94,21 @@
     border: none;
     outline: none;
 }
+.addtofriends{
+    position: absolute;
+    right: 14px;
+    top: 50px;
+    width: 23.8%;
+    border-radius: 0.4rem;
+    height: 43px;
+    outline: none;
+    border: none;
+    background-color: rgb(149, 255, 148);
+
+}
+.addtofriends:hover{
+    background-color: rgb(49, 232, 46);
+}
 .deleteProfile button{
     background-color: rgb(251, 145, 145);
 }
@@ -480,5 +495,22 @@
     height: 200px;
     width: 200px;
 }
+
+.optionpvalue{
+    font-size: 14px;
+}
+
+.hzdjqs{
+    color: black;
+}
+
+.remove{
+    background-color: rgb(255, 122, 122);
+}
+.remove:hover{
+    background-color: rgb(246, 50, 50);
+}
+
+
 
 

@@ -132,9 +132,11 @@ const Post = (postX) => {
                 <img src={user.picture ? user.picture : 'https://cdn-icons-png.flaticon.com/512/149/149071.png'} alt="" />
                 </Link>
                 <div className="fullnamepos">
+                  <Link  className='hzdjqs' to={`/profile/${postUnique.user}`}>
                     <span className="jijiSpanos">
                     { user.firstName+' '+user.lastName }
                     </span>
+                  </Link>
                     <div className='postuniquecreatedAt'>
                         <em> 
                           <TimeAgo createdAt={postUnique.createdAt} />
