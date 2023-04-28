@@ -1,0 +1,61 @@
+.bodyCONTACT{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 56px);
+    flex-direction: column;
+    background-color: #e0e0e0;
+}
+.bodyCONTACT textarea{
+    resize: none;
+    height : 300px;
+    width: 300px;
+    border-radius: 1rem;
+    border: none;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow:  9px 9px 14px #898989,
+                 -9px -9px 14px #ffffff;
+   
+    padding: 3rem;
+    transition: 0.3s all ease-in-out;
+
+}
+
+.bodyCONTACT textarea:hover{
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+box-shadow:  16px 16px 32px #5a5a5a,
+             -16px -16px 32px #ffffff;
+}
+
+.bodyCONTACT h2{
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    color: rgb(0, 0, 0);
+}
+
+
+.bodyCONTACT button{
+    width: 300px;
+    height: 42px;
+    border-radius: 0.3rem;
+    outline: none;
+    border: none;
+    margin-top: 1rem;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+box-shadow:  5px 5px 9px #5a5a5a,
+             -5px -5px 9px #ffffff;
+             transition: 0.3s all ease-in-out;
+}
+.bodyCONTACT form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.bodyCONTACT button:hover{
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+box-shadow:  12px 12px 24px #5a5a5a,
+             -12px -12px 24px #ffffff;
+}

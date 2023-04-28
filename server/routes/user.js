@@ -9,7 +9,7 @@ const contactMe =  require('../controllers/contactMe');
 router.get('/getUser', verifyToken, getUser);
 router.get('/getU/:id', verifyToken, getUserById);
 router.get('/HandlingFriendlyrequests/:id', verifyToken, HandlingFriendlyrequests);
-router.get('/contactMe/:id', verifyToken, contactMe);
+router.post('/contactMe', verifyToken, contactMe);
 
 
 
