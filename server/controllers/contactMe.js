@@ -3,16 +3,14 @@ const contact = require('../models/contact');
 
 const contactMe = async (req, res) => {
     try{
-        const data = req.body;
-        const idUser = data.idUser;
-        const message = data.message;
-
+        
         const isSent = await contact.create({
-            idUser : idUser, 
-            message: message
+            idUser :  req.user._id, 
+            message : JSON.stringify(req.body)
         })
         if(isSent){
             res.status(200).send('Sent Successfully');
+            
 
         }
         else{

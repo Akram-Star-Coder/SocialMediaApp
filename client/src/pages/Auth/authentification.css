@@ -8,6 +8,7 @@
   
   .form{
     display: flex;
+    margin-top: 2rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -26,11 +27,16 @@
   }
   
   .loginPage .wrapper{
-    background-color: #e2ea9b;
+    background-color: #ffffff;
     height: 60vh;
     width: 25%;
     border-radius: 1rem;
-  }
+    backdrop-filter: blur(9px) saturate(200%);
+    -webkit-backdrop-filter: blur(9px) saturate(200%);
+    background-color: rgba(17, 25, 40, 0.55);
+
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
   .loginPage img {
     height: 0%;
     width: 0%;
@@ -52,7 +58,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.768);
+  background-color: rgba(255, 255, 255, 0.268);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -67,7 +73,13 @@
   display: flex;
   flex-direction: column;
   z-index: 900;
-  background: rgb(255, 255, 255);
+
+  border-radius: 1rem;
+  backdrop-filter: blur(9px) saturate(200%);
+  -webkit-backdrop-filter: blur(9px) saturate(200%);
+  background-color: rgba(17, 25, 40, 0.55);
+
+  border: 1px solid rgba(255, 255, 255, 0.125);  
   height: 80vh;
   width: 30%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -77,7 +89,7 @@
 
 .icon{
   position: relative;
-  height: 25px;
+  height: 16px;
 }
 
 .birthday{
@@ -92,24 +104,24 @@
   height: 26px; 
 }
 .loginPage{
-  background-image: url("./univers.avif");
+  background-image: url("./univers.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .pop{
-  height: 30px;
-  width: 30px;
+  height: 26px;
+  width: 26px;
   position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
+  right: -1.1rem;
+  top: -1.1rem;
 }
 .pop i{
-  font-size: 30px;
+  font-size: 23px;
 }
 
 .errorDiv{
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   margin: 0.2rem 0;
   display: flex;
@@ -117,17 +129,188 @@
   justify-content: center;
   height: 30px;
   text-align: center;
-  background-color: #ffaeae;
-  border-radius: 0.3rem;
+  background-color: #e53e3e;
+  color: white;
+  border-radius: 0.5rem;
 }
 .successDiv{
-  background-color: #a9ff81;
+  background-color: #a9f387;
+  color: black;
 }
  
 .Loading{
-  height: 34px;
-  width: 34px;
+  height: 66px;
+  width: 66px;
+  position: absolute;
+  top: 5rem;
+  right: 41%;
 
+}
+.loginPage .wrapper h1{
+  color: white;
+  position: absolute;
+  top: 2.5rem;
+}
+
+.idzukq{
+  position: absolute;
+  bottom: 2rem;
+  color: white;
+
+}
+.idzukq button{
+  height: 22px;
+  width: 70px;
+  border: none;
+  outline: none;
+  border-radius: 0.3rem;
+  margin-left: 0.5rem;
+  transition: 0.2s all ease-in-out;
+}
+.idzukq button:hover{
+    background-color: #e53e3e;
+    color: white;
+}
+.form input{
+  width: 250px;
+  padding: 0 1rem;
+  height: 30px;
+  border-radius: 0.5rem;
+  margin-bottom: 0.6rem;
+  outline: none;
+  border: none;
+  text-align: center;
+}
+.form button{
+  height: 24px;
+  width: 120px;
+  border: none;
+  outline: none;
+  border-radius: 0.3rem;
+  margin-left: 0.5rem;
+  transition: 0.2s all ease-in-out;
+  background-color: #dd3535;
+  color: white;
+
+  margin-top: 1rem;
+}
+.form button:hover{
+  background-color: #ffffff;
+  color: rgb(252, 0, 0);
+
+}
+
+.gin{
+  color: rgb(255, 255, 255);
+}
+.Lo{
+  color: rgb(223, 21, 21);
+}
+
+
+.wrapper2 h1{
+  position: absolute;
+  top: 2rem;
+  left: 33%;
+  color: white;
+}
+
+.wrapper2 .euizds{
+  position: absolute;
+  top: 4.5rem;
+  left: 32%;
+  color: white;
+}
+
+.wrapper2 .X{
+  margin-top: 7rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.wrapper2 .X input{
+  width: 90%;
+  height: 30px;
+  outline: none;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0 1rem;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 0.7rem;  
+}
+.select {
+  width: 50px;
+  height: 29px;
+  margin-top: 0.3rem;
+}
+.gender{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.genderOp{
+  display: flex;
+  align-items: center;
+  width: 90px;  
+  justify-content: center;
+}
+.genderOp input{
+  height: 5px;
+  width: 10px;
+  outline: none;
+  border: none;
+}
+.genderOp label{
+  color: white;
+  position: relative;
+  right: 0.1rem;
+  top: -0.4rem;
+}
+.infos{
+  position: relative;
+  height: 100px;
+}
+.infos span{
+  position: absolute;
+  font-size: 14px;
+  text-align: center;
+  color: white;
+  display: flex;
+  width: 300px;
+  right: -9.4rem;
+  top: 3rem;
+}
+.fuz{
+  position: absolute;
+  bottom: 74px;
+  height: 30px;
+  width: 283px;
+  border-radius: 0.4rem;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  color: white;
+  background-color: #dd3535;
+}
+.fuz:hover{
+  background-color: white;
+  color: #dd3535;
+  border: 2px solid #dd3535;
+}
+
+.errorDiv{
+  position: absolute;
+  top: 6rem;
+  right: 2.2rem;
+}
+
+
+.icon button{
+  border: none;
+  outline: none;
+  border-radius: 50%;
 }
 
 
@@ -135,28 +318,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.Lo{
+  color: red;
+}
 
 
 

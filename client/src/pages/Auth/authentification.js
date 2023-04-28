@@ -116,11 +116,19 @@ const OTHO = () => {
       }
     } 
     catch(err){
-      setError('')
+      setError('') 
       setLoading(false);
       if(err.response.status === 406){
         setSuccess('');
-        setError('User Already Exists');
+        setError('User Already Exists'); 
+      }
+      else if(err.response.status === 404){
+        setSuccess('');
+        setError('Empty Field'); 
+      }
+      else if(err.response.status === 499){
+        setSuccess('');
+        setError('Empty Field'); 
       }
       else if(err.response.status === 400){
         setSuccess('');
@@ -207,9 +215,8 @@ const OTHO = () => {
   return (
     <>
     <div className="loginPage">  
-          <img src="https://static.vecteezy.com/ti/vecteur-libre/p3/5879539-cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cloud-storage-for-uploading-and-processing-files-vector-illustration-avec-scene-de-personnes-isolees-gratuit-vectoriel.jpg" alt="" />
           <div className="wrapper">
-            <h1>Login</h1>
+            <h1> <span className="Lo">Log</span><span className="gin">  In</span> </h1>
             {
               errorL && (<div className='errorDiv'><span>{errorL}</span></div>)
             }
@@ -226,8 +233,7 @@ const OTHO = () => {
               <input type="password" name="password" placeholder='Password'  onChange={handleChange} />
               <button type='submit'>Log In</button>
             </form>
-            <p>No account ? <button onClick={handlePopup}>Sign In</button></p>
-            <p><Link  to='/createPage'>Create a page</Link> for a celebrity, brand or business.</p>
+            <p className='idzukq'>No account ? <button onClick={handlePopup}>Sign In</button></p>
           </div>
           {
             popUp && (
@@ -236,7 +242,7 @@ const OTHO = () => {
                   <div className="icon">
                     <button  onClick={handlePopup}  className='pop'><i className="fa-solid fa-xmark"></i></button>
                   </div>
-                  <h1>Register</h1>
+                  <h1> <span className="Lo">Sign</span> Up </h1>
                   {
                     error && (<div className='errorDiv'><span>{error}</span></div>)
                   }
@@ -248,8 +254,8 @@ const OTHO = () => {
                   {
                     success && (<div className='errorDiv successDiv'><span>{success}</span></div>)
                   }
-                  <span>It's quick and easy!</span>
-                  <form className='form' onSubmit={handleSubmit1}>
+                  <span className='euizds'>It's quick and easy!</span>
+                  <form className='X' onSubmit={handleSubmit1}>
                     
 
                     <input type="text" name="firstName" placeholder='First Name' onChange={handleChange2}/>
@@ -322,7 +328,7 @@ const OTHO = () => {
                       </span>
                     </div>
                     
-                    <button type='submit'>Sign Up</button>
+                    <button className='fuz' type='submit'>Sign Up</button>
                   </form>
                 </div>
 

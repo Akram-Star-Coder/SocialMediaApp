@@ -20,7 +20,10 @@ const register = async (req, res) => {
             birthdayMonth, 
             birthdayDay
             } = req.body;
-            
+        if(!firstName || !lastName || !email || !password || !gender){
+            res.status(499).send('Empty Field');
+        }
+        else{
             if(email){
                 //we check first if the email exists
                 const isExisting = await users.findOne({email});
@@ -62,7 +65,9 @@ const register = async (req, res) => {
             }   
             else{
                 res.status(404).send('Email Not found');
-            }     
+            } 
+        }
+                
     }
     catch(e){
         res.status(666).send(e.message)

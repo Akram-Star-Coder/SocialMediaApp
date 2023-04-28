@@ -6,7 +6,7 @@ const { ObjectId } = mongoose.Types;
 const contact = new mongoose.Schema(
     {
         idUser : {
-            type : String, 
+            type : ObjectId, 
             required : true
         }, 
         message : {
